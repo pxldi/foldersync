@@ -105,4 +105,13 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit4)
     androidTestImplementation(libs.room.testing)
     androidTestImplementation(libs.coroutines.test)
+
+    ksp(libs.kotlin.metadata.jvm)
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.20")
+        force("androidx.concurrent:concurrent-futures:1.2.0")
+    }
 }
