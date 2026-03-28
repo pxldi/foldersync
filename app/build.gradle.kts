@@ -111,6 +111,7 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.dav4jvm)
 
+    implementation(libs.documentfile)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.compose.ui.test.junit4)
