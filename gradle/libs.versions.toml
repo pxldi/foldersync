@@ -4,6 +4,8 @@ agp = "8.10.1"
 kotlin = "2.3.20"
 kotlin-metadata-jvm = "2.3.20"
 ksp = "2.3.6"
+okhttp = "5.3.2"
+dav4jvm = "2.2.1"
 
 # --- AndroidX ---
 core-ktx = "1.16.0"
@@ -74,6 +76,10 @@ coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutin
 
 # DataStore
 datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+dav4jvm = { group = "com.github.bitfireAT", name = "dav4jvm", version.ref = "dav4jvm" }
 
 # Testing
 junit = { group = "junit", name = "junit", version.ref = "junit" }

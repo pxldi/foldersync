@@ -49,6 +49,12 @@ android {
     room {
         schemaDirectory("$projectDir/schemas")
     }
+
+    packaging {
+        resources {
+            excludes += "META-INF/versions/9/OSGI-INF/MANIFEST.MF"
+        }
+    }
 }
 
 dependencies {
@@ -100,6 +106,11 @@ dependencies {
     testImplementation(libs.coroutines.test)
     testImplementation(libs.turbine)
 
+    // --- WebDAV / Network ---
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.dav4jvm)
+
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.compose.ui.test.junit4)
@@ -113,5 +124,6 @@ configurations.all {
     resolutionStrategy {
         force("org.jetbrains.kotlin:kotlin-metadata-jvm:2.3.20")
         force("androidx.concurrent:concurrent-futures:1.2.0")
+        force("junit:junit:4.13.2")
     }
 }
