@@ -20,5 +20,8 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# Fix XmlPullParser conflict between Android framework and xpp3 (from dav4jvm)
 -dontwarn org.xmlpull.v1.**
+-dontwarn org.xmlpull.mxp1.**
+-dontwarn org.xmlpull.mxp1_serializer.**
 -keep class org.xmlpull.v1.** { *; }
