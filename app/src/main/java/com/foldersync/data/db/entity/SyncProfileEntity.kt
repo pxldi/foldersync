@@ -13,6 +13,9 @@ data class SyncProfileEntity(
 
     val name: String,
 
+    @ColumnInfo(name = "connection_id")
+    val connectionId: Long? = null,
+
     @ColumnInfo(name = "local_uri")
     val localUri: String,
 
@@ -52,4 +55,10 @@ data class SyncProfileEntity(
 
     @ColumnInfo(name = "updated_at")
     val updatedAt: Long = System.currentTimeMillis(),
+
+    @ColumnInfo(name = "scheduled_hour")
+    val scheduledHour: Int? = null,
+
+    @ColumnInfo(name = "scheduled_minute")
+    val scheduledMinute: Int = 0,
 )

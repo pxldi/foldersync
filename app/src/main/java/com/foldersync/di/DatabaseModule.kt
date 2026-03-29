@@ -8,6 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import com.foldersync.data.db.FolderSyncDatabase
+import com.foldersync.data.db.dao.ConnectionDao
 import com.foldersync.data.db.dao.FileMetadataDao
 import com.foldersync.data.db.dao.SyncProfileDao
 import com.foldersync.data.db.dao.SyncRunDao
@@ -24,8 +25,13 @@ object DatabaseModule {
             context,
             FolderSyncDatabase::class.java,
             "foldersync.db",
-        ).build()
+        )
+            .fallbackToDestructiveMigration(false)  // wipes DB on schema change — fine during dev
+            .build()
     }
+
+    @Provides
+    fun provideConnectionDao(db: FolderSyncDatabase): ConnectionDao = db.connectionDao()
 
     @Provides
     fun provideSyncProfileDao(db: FolderSyncDatabase): SyncProfileDao = db.syncProfileDao()

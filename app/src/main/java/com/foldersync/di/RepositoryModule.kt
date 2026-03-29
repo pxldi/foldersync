@@ -1,8 +1,10 @@
 package com.foldersync.di
 
+import com.foldersync.data.repository.ConnectionRepositoryImpl
 import com.foldersync.data.repository.SyncProfileRepositoryImpl
 import com.foldersync.data.repository.SyncRunRepositoryImpl
 import com.foldersync.data.repository.WebDavRepositoryImpl
+import com.foldersync.domain.repository.ConnectionRepository
 import com.foldersync.domain.repository.SyncProfileRepository
 import com.foldersync.domain.repository.SyncRunRepository
 import com.foldersync.domain.repository.WebDavRepository
@@ -33,4 +35,10 @@ abstract class RepositoryModule {
     abstract fun bindWebDavRepository(
         impl: WebDavRepositoryImpl,
     ): WebDavRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindConnectionRepository(
+        impl: ConnectionRepositoryImpl,
+    ): ConnectionRepository
 }

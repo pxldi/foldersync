@@ -12,7 +12,7 @@ class TestConnectionUseCase @Inject constructor(
         url: String,
         credentials: WebDavCredentials,
     ): ConnectionTestResult {
-        // Basic validation before hitting the network
+        // Basic validation
         if (url.isBlank()) {
             return ConnectionTestResult.Failure("URL cannot be empty")
         }
@@ -23,6 +23,18 @@ class TestConnectionUseCase @Inject constructor(
             return ConnectionTestResult.Failure("Username cannot be empty")
         }
 
-        return webDavRepository.testConnection(url, credentials)
+        // Try connection
+        val result = webDavRepository.testConnection(url, credentials)
+
+        // If it failed, try creating the directory and test again
+        if (result is ConnectionTestResult.Failure && result.message.contains("404")) {
+            val mkdirResult = webDavRepository.createDirectory(url, credentials)
+            if (mkdirResult) {
+                // Retry the test after creating the directory
+                return webDavRepository.testConnection(url, credentials)
+            }
+        }
+
+        return result
     }
 }

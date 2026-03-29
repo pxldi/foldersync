@@ -6,6 +6,7 @@ kotlin-metadata-jvm = "2.3.20"
 ksp = "2.3.6"
 okhttp = "5.3.2"
 dav4jvm = "2.2.1"
+security-crypto = "1.1.0"
 
 # --- AndroidX ---
 core-ktx = "1.16.0"
@@ -41,7 +42,10 @@ mockk = "1.14.9"
 # AndroidX Core
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
-
+security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "security-crypto" }
+work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
+work-hilt = { group = "androidx.hilt", name = "hilt-work", version = "1.3.0" }
+work-hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version = "1.3.0" }
 # Lifecycle
 kotlin-metadata-jvm = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin-metadata-jvm" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
