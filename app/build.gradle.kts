@@ -135,6 +135,10 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.dav4jvm)
 
+    implementation(libs.dav4jvm) {
+        exclude(group = "org.ogce", module = "xpp3")
+    }
+
     implementation(libs.documentfile)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)
@@ -143,6 +147,7 @@ dependencies {
     androidTestImplementation(libs.coroutines.test)
 
     ksp(libs.kotlin.metadata.jvm)
+
 }
 
 configurations.all {
